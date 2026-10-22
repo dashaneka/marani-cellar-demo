@@ -2,6 +2,8 @@
 
 A responsive Georgian restaurant demo website inspired by the warm brick cellars, traditional food, and qvevri wine of Old Tbilisi.
 
+**Live demo:** [rjresdemo.vercel.app](https://rjresdemo.vercel.app)
+
 ![Warm Georgian cellar interior](assets/images/hero-cellar.webp)
 
 ## Features
