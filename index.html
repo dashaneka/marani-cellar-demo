@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marani Cellar | Georgian restaurant in Tbilisi</title>
+<meta name="description" content="Traditional Georgian food and qvevri wine in Old Tbilisi. Order on WhatsApp, view the menu, get directions.">
+<meta property="og:title" content="Marani Cellar, Tbilisi">
+<meta property="og:description" content="Traditional Georgian food and qvevri wine in Old Tbilisi.">
+<meta property="og:type" content="restaurant">
+<link rel="preload" as="image" href="assets/images/hero-cellar.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,700&family=Figtree:wght@400;500;700&family=Noto+Sans+Georgian:wght@400;500;700&family=Noto+Serif+Georgian:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f2ef;--ink:#231a1d;--brand:#6b3a24;--accent:#d9a441;--muted:#6f6266;--line:#e3dad6;--card:#fff}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{font:400 16px/1.6 'Figtree','Noto Sans Georgian',sans-serif;color:var(--ink);background:var(--bg);padding-bottom:76px}
+h1,h2,h3{font-family:'Newsreader','Noto Serif Georgian',serif;line-height:1.15;font-weight:700}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+section{padding:64px 0}
+h2{font-size:clamp(28px,5vw,40px);margin-bottom:24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 22px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid transparent;cursor:pointer;font:inherit;font-weight:700;transition:transform .15s}
+.btn:active{transform:scale(.97)}
+.btn-wa{background:#1fa855;color:#fff}
+.btn-ghost{border-color:#fff;color:#fff}
+.btn-brand{background:var(--brand);color:#fff}
+
+/* header */
+header{position:fixed;inset:0 0 auto;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:12px 20px;color:#fff;transition:background .25s}
+header.solid{background:var(--brand);box-shadow:0 2px 12px #0003}
+header b{font-family:'Newsreader',serif;font-size:20px}
+#lang{background:none;border:1.5px solid #fff;color:#fff;border-radius:999px;padding:5px 14px;font:inherit;font-weight:700;cursor:pointer}
+
+/* hero */
+.hero{min-height:100svh;display:flex;align-items:flex-end;color:#fff;background:var(--brand) center/cover no-repeat;position:relative;padding:0}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0006 0%,#211208cc 100%)}
+.hero .wrap{position:relative;padding-bottom:72px;animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.hero h1{font-size:clamp(46px,11vw,110px);max-width:12ch;margin-bottom:14px}
+.hero p{font-size:clamp(17px,2.4vw,22px);max-width:34ch;margin-bottom:28px;opacity:.92}
+.hero .row{display:flex;gap:12px;flex-wrap:wrap}
+@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+
+/* about */
+.about{display:grid;gap:28px;grid-template-columns:1fr}
+.about p{font-size:19px;max-width:56ch}
+.facts{display:flex;gap:28px;flex-wrap:wrap;color:var(--muted)}
+.facts b{display:block;color:var(--brand);font-family:'Newsreader',serif;font-size:26px}
+
+/* menu */
+#menu{background:var(--card)}
+.tabs{position:sticky;top:52px;z-index:10;display:flex;gap:8px;overflow-x:auto;padding:10px 0;background:var(--card);margin-bottom:8px;scrollbar-width:none}
+.tabs button{flex:none;padding:8px 18px;border-radius:999px;border:1.5px solid var(--line);background:none;font:inherit;font-weight:500;cursor:pointer;color:var(--ink)}
+.tabs button.on{background:var(--brand);border-color:var(--brand);color:#fff}
+.cat h3{font-size:26px;margin:28px 0 6px;color:var(--brand)}
+.item{display:flex;gap:14px;justify-content:space-between;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--line)}
+.item h4{font-size:17px;font-weight:700}
+.item p{color:var(--muted);font-size:15px;max-width:52ch}
+.item .r{display:flex;align-items:center;gap:12px;flex:none}
+.price{font-weight:700;white-space:nowrap}
+.add{width:38px;height:38px;border-radius:50%;border:none;background:var(--accent);color:#231a1d;font-size:22px;font-weight:700;cursor:pointer;line-height:1}
+.qty{min-width:20px;text-align:center;font-weight:700}
+.minus{background:var(--line)}
+
+/* gallery */
+.grid{display:grid;gap:10px;grid-template-columns:repeat(2,1fr)}
+.grid button{border:0;padding:0;background:var(--line);border-radius:12px;overflow:hidden;aspect-ratio:1;cursor:zoom-in}
+.grid button:first-child{grid-column:span 2;aspect-ratio:2/1}
+.grid img{width:100%;height:100%;object-fit:cover}
+#lb{position:fixed;inset:0;background:#000d;display:none;place-items:center;z-index:50;padding:16px;cursor:zoom-out}
+#lb.on{display:grid}
+#lb img{max-height:90vh;border-radius:8px}
+
+/* reviews */
+.revs{display:grid;gap:16px}
+.rev{background:var(--card);border-left:4px solid var(--accent);padding:18px 20px;border-radius:0 12px 12px 0}
+.rev p{font-family:'Newsreader','Noto Serif Georgian',serif;font-size:20px;margin-bottom:6px}
+.rev small{color:var(--muted)}
+
+/* visit */
+.visit{display:grid;gap:28px}
+.hours div{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--line)}
+.visit address{font-style:normal;margin:16px 0}
+iframe{width:100%;height:320px;border:0;border-radius:14px}
+
+footer{background:var(--brand);color:#fff;padding:36px 0;text-align:center;font-size:15px}
+footer a{color:#fff}
+footer small{display:block;margin-top:10px;opacity:.7}
+
+/* mobile bar + cart */
+#bar{position:fixed;inset:auto 0 0;z-index:30;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:10px;background:var(--card);box-shadow:0 -2px 14px #0002}
+#bar a{text-align:center;padding:12px 4px;border-radius:12px;font-weight:700;text-decoration:none;font-size:15px;background:var(--bg)}
+#bar a.wa{background:#1fa855;color:#fff}
+#cart{position:fixed;left:10px;right:10px;bottom:76px;z-index:31;display:none;justify-content:space-between;align-items:center;gap:12px;background:var(--ink);color:#fff;padding:10px 10px 10px 18px;border-radius:999px}
+#cart.on{display:flex}
+
+@media(min-width:800px){
+  body{padding-bottom:0}
+  .about{grid-template-columns:1.4fr 1fr;align-items:start}
+  .grid{grid-template-columns:repeat(4,1fr)}
+  .grid button:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+  .revs{grid-template-columns:repeat(3,1fr)}
+  .visit{grid-template-columns:1fr 1.3fr}
+  #bar{display:none}
+  #cart{left:auto;right:24px;bottom:24px;min-width:340px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header id="hd"><b id="logo"></b><button id="lang" aria-label="Change language">KA</button></header>
+
+<main>
+<section class="hero" id="hero">
+  <div class="wrap">
+    <h1 id="h-name"></h1>
+    <p data-t="tagline"></p>
+    <div class="row">
+      <a class="btn btn-wa" id="hero-wa" target="_blank" rel="noopener" data-t="orderWa"></a>
+      <a class="btn btn-ghost" id="hero-call" data-t="call"></a>
+    </div>
+  </div>
+</section>
+
+<section id="about"><div class="wrap about">
+  <div><h2 data-t="aboutH"></h2><p data-t="about"></p></div>
+  <div class="facts" id="facts"></div>
+</div></section>
+
+<section id="menu"><div class="wrap">
+  <h2 data-t="menuH"></h2>
+  <nav class="tabs" id="tabs" aria-label="Menu categories"></nav>
+  <div id="menu-list"></div>
+</div></section>
+
+<section id="gallery"><div class="wrap">
+  <h2 data-t="galleryH"></h2>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section id="reviews" style="padding-top:0"><div class="wrap">
+  <h2 data-t="reviewsH"></h2>
+  <div class="revs" id="revs"></div>
+</div></section>
+
+<section id="visit" style="background:var(--card)"><div class="wrap visit">
+  <div>
+    <h2 data-t="visitH"></h2>
+    <div class="hours" id="hours"></div>
+    <address id="addr"></address>
+    <a class="btn btn-brand" id="dir" target="_blank" rel="noopener" data-t="directions"></a>
+  </div>
+  <iframe id="map" loading="lazy" title="Map" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div id="f-contact"></div>
+  <small id="credit"></small>
+</div></footer>
+
+<div id="cart"><span id="cart-txt"></span><button class="btn btn-wa" id="send" data-t="send"></button></div>
+<nav id="bar">
+  <a class="wa" id="b-wa" target="_blank" rel="noopener" data-t="wa"></a>
+  <a id="b-call" data-t="call"></a>
+  <a id="b-dir" target="_blank" rel="noopener" data-t="directions"></a>
+</nav>
+<div id="lb" role="dialog" aria-label="Photo"><img alt=""></div>
+
+<script>
+/* =========================================================
+   EDIT ONLY THIS BLOCK FOR EACH NEW RESTAURANT
+   ========================================================= */
+const CONFIG = {
+  name: "Marani Cellar",
+  phone: "+995555000000",          // shown + used for Call button
+  whatsapp: "995555000000",        // digits only, no + (used for wa.me)
+  address: "12 Shardeni Street, Old Tbilisi",
+  mapsLink: "https://www.google.com/maps/search/?api=1&query=Shardeni+Street+Tbilisi",
+  instagram: "https://instagram.com/",
+  currency: "₾",
+  credit: "Website by Rajnish",
+  colors: { brand: "#6b3a24", accent: "#d9a441", bg: "#f6f2ef", ink: "#231a1d" },
+  hero: "assets/images/hero-cellar.webp",
+  gallery: [
+    { src: "assets/images/georgian-feast.webp", alt: "Georgian feast with khinkali, khachapuri, pkhali and amber wine" },
+    { src: "assets/images/khinkali.webp", alt: "Hand-folded Georgian khinkali with cracked black pepper" },
+    { src: "assets/images/khachapuri.webp", alt: "Adjarian khachapuri with melted cheese, egg yolk and butter" },
+    { src: "assets/images/qvevri-wine.webp", alt: "Amber qvevri wine and a traditional clay wine jug" },
+    { src: "assets/images/cellar-table.webp", alt: "Candlelit table for two beneath a warm brick cellar arch" }
+  ],
+  facts: [ { n: "2014", en: "open since", ka: "გახსნილია" }, { n: "4.7★", en: "on Google", ka: "Google-ზე" } ],
+  hours: [ { en: "Mon – Fri", ka: "ორშ – პარ", t: "12:00 – 23:00" }, { en: "Sat – Sun", ka: "შაბ – კვი", t: "11:00 – 00:00" } ],
+  menu: [
+    { en: "Starters", ka: "ცივი კერძები", items: [
+      { en: "Pkhali trio", ka: "ფხალის ასორტი", d: { en: "Spinach, beet and eggplant with walnut paste.", ka: "ისპანახი, ჭარხალი და ბადრიჯანი ნიგვზით." }, p: 18 },
+      { en: "Lobio in clay pot", ka: "ლობიო ქოთანში", d: { en: "Slow-cooked red beans, herbs, mchadi.", ka: "წითელი ლობიო, მწვანილი, მჭადი." }, p: 14 },
+      { en: "Sulguni cheese", ka: "სულგუნი", d: { en: "Pan-fried, served with tomato.", ka: "შემწვარი, პომიდვრით." }, p: 16 }
+    ]},
+    { en: "Mains", ka: "ცხელი კერძები", items: [
+      { en: "Khinkali (5 pcs)", ka: "ხინკალი (5 ც)", d: { en: "Hand-folded, beef and pork, black pepper.", ka: "ხელით ნაკეცი, საქონლისა და ღორის ხორცი." }, p: 15 },
+      { en: "Adjarian khachapuri", ka: "აჭარული ხაჭაპური", d: { en: "Boat-shaped, cheese, egg yolk, butter.", ka: "ყველი, კვერცხის გული, კარაქი." }, p: 22 },
+      { en: "Mtsvadi", ka: "მწვადი", d: { en: "Pork skewers over vine charcoal.", ka: "ღორის მწვადი ვაზის ნახშირზე." }, p: 32 }
+    ]},
+    { en: "Wine & Drinks", ka: "ღვინო და სასმელი", items: [
+      { en: "Qvevri Rkatsiteli (glass)", ka: "ქვევრის რქაწითელი (ჭიქა)", d: { en: "Amber wine, house selection.", ka: "ქარვისფერი ღვინო, სახლის შერჩევა." }, p: 12 },
+      { en: "Saperavi (glass)", ka: "საფერავი (ჭიქა)", d: { en: "Deep red, Kakheti.", ka: "მუქი წითელი, კახეთი." }, p: 12 },
+      { en: "Tarkhuna lemonade", ka: "ტარხუნა", d: { en: "Homemade tarragon soda.", ka: "სახლის ტარხუნა." }, p: 7 }
+    ]}
+  ],
+  reviews: [ /* replace with real Google reviews (short) */
+    { en: "Best khachapuri in the old town. Staff were lovely.", ka: "ძველ ქალაქში საუკეთესო ხაჭაპური. მომსახურება შესანიშნავია.", who: "Google review" },
+    { en: "Real home cooking and great wine. We came twice in one week.", ka: "ნამდვილი სახლის გემო და მშვენიერი ღვინო.", who: "Google review" },
+    { en: "Cozy, fair prices, and the khinkali are perfect.", ka: "მყუდრო, ფასები სამართლიანი, ხინკალი იდეალური.", who: "Google review" }
+  ],
+  ui: {
+    en: { tagline: "Georgian food and qvevri wine, cooked the way it is at home.", orderWa: "Order on WhatsApp", call: "Call now", wa: "WhatsApp", directions: "Directions",
+      aboutH: "Our table", about: "A small cellar restaurant in Old Tbilisi. Bread from the tone oven, wine from clay jars, and recipes from our grandmothers' kitchens.",
+      menuH: "Menu", galleryH: "Inside", reviewsH: "What guests say", visitH: "Visit us", send: "Send order", items: "items", empty: "Hello! I'd like to ask about a table / order.", orderIntro: "Hello! I'd like to order:", total: "Total" },
+    ka: { tagline: "ქართული კერძები და ქვევრის ღვინო, სახლისებური გემოთი.", orderWa: "შეკვეთა WhatsApp-ით", call: "დარეკვა", wa: "WhatsApp", directions: "მარშრუტი",
+      aboutH: "ჩვენ შესახებ", about: "პატარა მარანი-რესტორანი ძველ თბილისში. თონის პური, ქვევრის ღვინო და ბებიების რეცეპტები.",
+      menuH: "მენიუ", galleryH: "გალერეა", reviewsH: "სტუმრების შეფასებები", visitH: "ეწვიეთ ჩვენ", send: "შეკვეთის გაგზავნა", items: "პროდუქტი", empty: "გამარჯობა! მაინტერესებს მაგიდის დაჯავშნა / შეკვეთა.", orderIntro: "გამარჯობა! მინდა შევუკვეთო:", total: "ჯამი" }
+  }
+};
+/* ======================= END OF CONFIG ======================= */
+
+const $ = s => document.querySelector(s);
+let lang = localStorage.getItem('lang') || 'en';
+try{}catch(e){}
+const cart = {};              // "catIndex-itemIndex" -> qty
+const U = () => CONFIG.ui[lang];
+const L = o => o[lang] || o.en;
+const money = n => n + ' ' + CONFIG.currency;
+const wa = txt => `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(txt)}`;
+
+// theme
+for (const [k, v] of Object.entries(CONFIG.colors)) document.documentElement.style.setProperty('--' + k, v);
+$('#hero').style.backgroundImage = `url(${CONFIG.hero})`;
+
+function render() {
+  document.documentElement.lang = lang;
+  $('#lang').textContent = lang === 'en' ? 'KA' : 'EN';
+  document.querySelectorAll('[data-t]').forEach(e => e.textContent = U()[e.dataset.t]);
+  $('#logo').textContent = $('#h-name').textContent = CONFIG.name;
+  const call = 'tel:' + CONFIG.phone, w = wa(U().empty);
+  ['#hero-call', '#b-call'].forEach(s => $(s).href = call);
+  ['#hero-wa', '#b-wa'].forEach(s => $(s).href = w);
+  ['#dir', '#b-dir'].forEach(s => $(s).href = CONFIG.mapsLink);
+  $('#facts').innerHTML = CONFIG.facts.map(f => `<div><b>${f.n}</b>${L(f)}</div>`).join('');
+  $('#hours').innerHTML = CONFIG.hours.map(h => `<div><span>${L(h)}</span><b>${h.t}</b></div>`).join('');
+  $('#addr').innerHTML = `${CONFIG.address}<br><a href="${call}">${CONFIG.phone}</a>`;
+  $('#map').src = 'https://www.google.com/maps?q=' + encodeURIComponent(CONFIG.name + ' ' + CONFIG.address) + '&output=embed';
+  $('#revs').innerHTML = CONFIG.reviews.map(r => `<div class="rev"><p>“${L(r)}”</p><small>★★★★★ ${r.who}</small></div>`).join('');
+  $('#f-contact').innerHTML = `${CONFIG.name} · ${CONFIG.address}<br><a href="${call}">${CONFIG.phone}</a>` + (CONFIG.instagram ? ` · <a href="${CONFIG.instagram}" target="_blank" rel="noopener">Instagram</a>` : '');
+  $('#credit').textContent = CONFIG.credit;
+  $('#tabs').innerHTML = CONFIG.menu.map((c, i) => `<button data-c="${i}" class="${i ? '' : 'on'}">${L(c)}</button>`).join('');
+  renderMenu(); renderCart();
+}
+
+function renderMenu() {
+  $('#menu-list').innerHTML = CONFIG.menu.map((c, ci) => `<div class="cat" id="cat${ci}"><h3>${L(c)}</h3>` +
+    c.items.map((it, ii) => { const k = ci + '-' + ii, q = cart[k] || 0;
+      return `<div class="item"><div><h4>${L(it)}</h4><p>${L(it.d)}</p></div><div class="r"><span class="price">${money(it.p)}</span>` +
+      (q ? `<button class="add minus" data-k="${k}" data-d="-1" aria-label="Remove one">−</button><span class="qty">${q}</span>` : '') +
+      `<button class="add" data-k="${k}" data-d="1" aria-label="Add one">+</button></div></div>`; }).join('') + `</div>`).join('');
+}
+
+function lines() {
+  return Object.entries(cart).filter(([, q]) => q).map(([k, q]) => { const [c, i] = k.split('-'); const it = CONFIG.menu[c].items[i]; return { name: L(it), q, sum: q * it.p }; });
+}
+function renderCart() {
+  const ls = lines(), n = ls.reduce((a, l) => a + l.q, 0), t = ls.reduce((a, l) => a + l.sum, 0);
+  $('#cart').classList.toggle('on', n > 0);
+  $('#cart-txt').textContent = `${n} ${U().items} · ${money(t)}`;
+}
+
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-k]');
+  if (b) { const k = b.dataset.k; cart[k] = Math.max(0, (cart[k] || 0) + +b.dataset.d); const y = scrollY; renderMenu(); renderCart(); scrollTo(0, y); return; }
+  const t = e.target.closest('#tabs button');
+  if (t) { document.querySelectorAll('#tabs button').forEach(x => x.classList.toggle('on', x === t)); $('#cat' + t.dataset.c).scrollIntoView(); return; }
+  const g = e.target.closest('.grid button');
+  if (g) { $('#lb img').src = g.dataset.src; $('#lb img').alt = g.querySelector('img').alt; $('#lb').classList.add('on'); return; }
+  if (e.target.closest('#lb')) $('#lb').classList.remove('on');
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') $('#lb').classList.remove('on'); });
+
+$('#send').onclick = () => {
+  const ls = lines(), t = ls.reduce((a, l) => a + l.sum, 0);
+  const msg = U().orderIntro + '\n' + ls.map(l => `• ${l.q} x ${l.name} (${money(l.sum)})`).join('\n') + `\n${U().total}: ${money(t)}`;
+  window.open(wa(msg), '_blank');
+};
+$('#lang').onclick = () => { lang = lang === 'en' ? 'ka' : 'en'; try { localStorage.setItem('lang', lang); } catch (e) {} render(); };
+addEventListener('scroll', () => $('#hd').classList.toggle('solid', scrollY > innerHeight - 80), { passive: true });
+
+$('#grid').innerHTML = CONFIG.gallery.map(photo => `<button data-src="${photo.src}" aria-label="Open photo: ${photo.alt}"><img src="${photo.src}" alt="${photo.alt}" loading="lazy" decoding="async"></button>`).join('');
+
+// SEO: restaurant schema
+const ld = document.createElement('script'); ld.type = 'application/ld+json';
+ld.textContent = JSON.stringify({ "@context": "https://schema.org", "@type": "Restaurant", name: CONFIG.name, telephone: CONFIG.phone, address: CONFIG.address, image: CONFIG.hero, hasMap: CONFIG.mapsLink });
+document.head.appendChild(ld);
+
+try { lang = localStorage.getItem('lang') || 'en'; } catch (e) {}
+render();
+</script>
+</body>
+</html>
